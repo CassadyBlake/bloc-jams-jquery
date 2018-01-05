@@ -56,7 +56,8 @@ class Player {
 
 // if(minutes < 10) {
 //minutes = "0" + minutes;
-}
+//}
+
 // if(seconds < 10) {
 //seconds = "0" + seconds;
 //} *really like the shortening meathod for these if statements nice time saver
