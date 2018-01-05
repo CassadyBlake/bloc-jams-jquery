@@ -51,34 +51,20 @@ class Player {
 
 
   prettyTime (timeInSeconds) {
-    function decimalAdjust (type, value, exp) {
-      // If the exp is undefined or zero...
-      if (typeof exp === 'undefined' || +exp === 0) {
-        return Math[type](value);
-      }
-      value = +value;
-      exp = +exp;
-      // If the value is not a number or the exp is not an integer...
-      if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
-        return NaN;
-      }
-      // Shift
-      value = value.toString().split('e');
-      value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
-      // Shift back
-      value = value.toString().split('e');
-      return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+      let minutes = Math.floor(timeInSeconds / 60);
+      let seconds = Math.floor(timeInSeconds - (minutes * 60));
 
-    }
-      if (!Math.floor10) {
-          Math.floor10 = function(value, exp) {
-            return decimalAdjust('floor', value, exp);
-          };
-        }
+// if(minutes < 10) {
+//minutes = "0" + minutes;
+}
+// if(seconds < 10) {
+//seconds = "0" + seconds;
+//} *really like the shortening meathod for these if statements nice time saver
 
-    const timeInMSS = timeInSeconds / 60;
-    console.log(timeInMSS);
-    return Math.floor10(timeInMSS, -2);
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+
+      return minutes + ":" + seconds;
   }
 
 }
